@@ -1,46 +1,228 @@
+/* ===============================
+   Global Styling
+=============================== */
 body {
-    font-family: Arial;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background: linear-gradient(135deg, #667eea, #764ba2, #89f7fe);
+    background-size: 300% 300%;
+    animation: gradientMove 10s ease infinite;
+
+    color: #ffffff;
     text-align: center;
 }
 
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===============================
+   Headings
+=============================== */
+h2 {
+    margin-top: 25px;
+    font-size: clamp(24px, 4vw, 32px);
+}
+
+h3 {
+    margin-top: 35px;
+    font-size: clamp(18px, 3vw, 22px);
+}
+
+/* ===============================
+   Upload Section
+=============================== */
+form {
+    margin-top: 20px;
+}
+
+input[type="file"] {
+    padding: 8px;
+    background: #ffffff;
+    border-radius: 6px;
+    border: none;
+    max-width: 90%;
+}
+
+button {
+    margin-top: 10px;
+    padding: 8px 18px;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    border: none;
+    border-radius: 20px;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* ===============================
+   Images
+=============================== */
+img {
+    border-radius: 12px;
+    margin-top: 15px;
+    max-width: 90%;
+    height: auto;
+}
+
+/* ===============================
+   Grid Layout (STRICT RESPONSIVE)
+=============================== */
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, 220px);
-    gap: 20px;
-    justify-content: center;
+    gap: 25px;
+    padding: 20px;
+    max-width: 1000px;     /* slightly reduced width */
+    margin: auto;
+    grid-template-columns: repeat(3, 1fr); /* desktop */
 }
 
+/* Tablet */
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===============================
+   Effect Card
+=============================== */
 .card {
     position: relative;
-    width: 220px;
-    height: 160px;
+    width: 100%;
+    height: 190px;          /* slightly taller */
+    padding: 10px;
+    border-radius: 16px;
+    overflow: hidden;
+
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(6px);
+
+    box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+    transition: transform 0.4s, box-shadow 0.4s;
 }
 
+.card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 20px 35px rgba(0,0,0,0.5);
+}
+
+/* ===============================
+   Card Image (FULLY VISIBLE)
+=============================== */
 .card img {
     width: 100%;
     height: 100%;
+    object-fit: contain;     /* show full image */
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
 }
 
+/* ===============================
+   Hover Overlay
+=============================== */
 .overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.8);
-    color: white;
-    display: none;
-    padding: 10px;
+    border-radius: 16px;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.3),
+        rgba(0,0,0,0.85)
+    );
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    transition: opacity 0.4s;
+    padding: 15px;
 }
 
 .card:hover .overlay {
-    display: block;
+    opacity: 1;
 }
 
+/* ===============================
+   Overlay Text
+=============================== */
+.overlay h4 {
+    margin: 0;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.overlay p {
+    font-size: 14px;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+/* ===============================
+   Next Button
+=============================== */
 .next-btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 6px 12px;
-    background: white;
-    color: black;
+    padding: 8px 18px;
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+    color: #222;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 20px;
     font-weight: bold;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.next-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+/* ===============================
+   Links
+=============================== */
+a {
+    color: #ffe082;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===============================
+   Mobile Fine Tuning
+=============================== */
+@media (max-width: 500px) {
+    .card {
+        height: 210px;
+    }
+
+    .overlay p {
+        font-size: 13px;
+    }
+
+    .next-btn {
+        padding: 6px 14px;
+        font-size: 14px;
+    }
 }
