@@ -1,6 +1,9 @@
 from flask import Blueprint, render_template, request, session
 import os
 
+os.makedirs("static/uploads", exist_ok=True)
+os.makedirs("static/outputs", exist_ok=True)
+
 home_bp = Blueprint('home', __name__)
 UPLOAD_FOLDER = 'static/uploads'
 
