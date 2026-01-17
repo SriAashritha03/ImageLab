@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ effect|capitalize }} Effect</title>
+</head>
+<body>
+
+<h2>{{ effect|capitalize }} Effect</h2>
+
+{% if output_image %}
+    <img src="{{ url_for('static', filename=output_image) }}" width="380"><br><br>
+
+    <a href="{{ url_for('effect.download', filename=output_filename) }}">
+        Download Image
+    </a>
+{% endif %}
+
+<br><br>
+<a href="{{ url_for('home.home') }}">⬅ Back to Home</a>
+
+</body>
+</html>

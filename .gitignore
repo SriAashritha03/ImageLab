@@ -1,0 +1,41 @@
+# ===============================
+# Virtual Environments
+# ===============================
+.venv/
+venv/
+env/
+
+# ===============================
+# Python Cache / Compiled Files
+# ===============================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ===============================
+# Uploaded & Generated Images
+# ===============================
+static/uploads/*
+static/outputs/*
+
+# Keep folders (Git does not track empty directories)
+!static/uploads/.gitkeep
+!static/outputs/.gitkeep
+
+# ===============================
+# IDE / Editor Files
+# ===============================
+.idea/
+*.iml
+
+# ===============================
+# OS Generated Files
+# ===============================
+.DS_Store
+Thumbs.db
+
+# ===============================
+# Logs
+# ===============================
+*.log

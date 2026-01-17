@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Enhancement Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h2>Upload Image</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="image" required>
+    <button type="submit">Upload</button>
+</form>
+
+{% if session.filename %}
+    <p><b>Uploaded:</b> {{ session.filename }}</p>
+{% endif %}
+
+<h3>Sample Image</h3>
+<img src="{{ url_for('static', filename='previews/sample.jpg') }}" width="220">
+
+<h3>Select an Effect</h3>
+
+<div class="grid">
+
+  <!-- Grayscale -->
+  <div class="card">
+    <img src="{{ url_for('static', filename='previews/gray_teddy.jpg') }}">
+    <div class="overlay">
+      <h4>Grayscale</h4>
+      <p>Converts image into black & white</p>
+      <a class="next-btn" href="{{ url_for('effect.effect_page', effect='gray') }}">
+        Next →
+      </a>
+    </div>
+  </div>
+
+  <!-- Brightness Increase -->
+  <div class="card">
+    <img src="{{ url_for('static', filename='previews/bright_teddy.jpg') }}">
+    <div class="overlay">
+      <h4>Brightness Increase</h4>
+      <p>Increases light intensity</p>
+      <a class="next-btn" href="{{ url_for('effect.effect_page', effect='bright') }}">
+        Next →
+      </a>
+    </div>
+  </div>
+
+  <!-- Brightness Decrease -->
+  <div class="card">
+    <img src="{{ url_for('static', filename='previews/dark_teddy.jpg') }}">
+    <div class="overlay">
+      <h4>Brightness Decrease</h4>
+      <p>Reduces light intensity</p>
+      <a class="next-btn" href="{{ url_for('effect.effect_page', effect='dark') }}">
+        Next →
+      </a>
+    </div>
+  </div>
+
+  <!-- Flip -->
+  <div class="card">
+    <img src="{{ url_for('static', filename='previews/flipped_teddy.jpg') }}">
+    <div class="overlay">
+      <h4>Flip</h4>
+      <p>Creates mirror reflection</p>
+      <a class="next-btn" href="{{ url_for('effect.effect_page', effect='flip') }}">
+        Next →
+      </a>
+    </div>
+  </div>
+
+  <!-- Negative -->
+  <div class="card">
+    <img src="{{ url_for('static', filename='previews/negative_teddy.jpg') }}">
+    <div class="overlay">
+      <h4>Negative</h4>
+      <p>Inverts image colors</p>
+      <a class="next-btn" href="{{ url_for('effect.effect_page', effect='negative') }}">
+        Next →
+      </a>
+    </div>
+  </div>
+
+  <!-- Sepia -->
+  <div class="card">
+    <img src="{{ url_for('static', filename='previews/sepia_teddy.jpg') }}">
+    <div class="overlay">
+      <h4>Old Photo (Sepia)</h4>
+      <p>Vintage photo effect</p>
+      <a class="next-btn" href="{{ url_for('effect.effect_page', effect='sepia') }}">
+        Next →
+      </a>
+    </div>
+  </div>
+
+  <!-- Sobel -->
+  <div class="card">
+    <img src="{{ url_for('static', filename='previews/sobel_teddy.jpg') }}">
+    <div class="overlay">
+      <h4>Sobel</h4>
+      <p>Highlights object edges</p>
+      <a class="next-btn" href="{{ url_for('effect.effect_page', effect='sobel') }}">
+        Next →
+      </a>
+    </div>
+  </div>
+
+  <!-- Sketch -->
+  <div class="card">
+    <img src="{{ url_for('static', filename='previews/sketch_teddy.jpg') }}">
+    <div class="overlay">
+      <h4>Pencil Sketch</h4>
+      <p>Hand-drawn sketch look</p>
+      <a class="next-btn" href="{{ url_for('effect.effect_page', effect='sketch') }}">
+        Next →
+      </a>
+    </div>
+  </div>
+
+  <!-- Cartoon -->
+  <div class="card">
+    <img src="{{ url_for('static', filename='previews/cartoon_teddy.jpg') }}">
+    <div class="overlay">
+      <h4>Cartoon</h4>
+      <p>Animated cartoon style</p>
+      <a class="next-btn" href="{{ url_for('effect.effect_page', effect='cartoon') }}">
+        Next →
+      </a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
