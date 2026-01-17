@@ -226,3 +226,52 @@ a:hover {
         font-size: 14px;
     }
 }
+
+/* ===============================
+   Mobile Fine Tuning (REAL MOBILE)
+=============================== */
+@media (max-width: 600px) {
+
+    body {
+        font-size: 16px; /* prevent auto zoom */
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    .grid {
+        padding: 12px;
+        gap: 20px;
+    }
+
+    .card {
+        height: 240px;      /* taller for clarity */
+        padding: 14px;
+    }
+
+    .overlay h4 {
+        font-size: 20px;
+    }
+
+    .overlay p {
+        font-size: 15px;
+    }
+
+    .next-btn {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 10px 22px;
+    }
+}
+* {
+    box-sizing: border-box;
+}
